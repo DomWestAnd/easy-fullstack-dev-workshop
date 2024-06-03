@@ -8,7 +8,7 @@ export default function SignIn() {
       className="animate-bounce rounded-full bg-purple-500 p-4 text-3xl font-semibold transition hover:bg-purple-300"
       onMouseDown={() =>
         signIn("google", {
-          callbackUrl: "/",
+          callbackUrl: "/recipes",
         })
       }
     >
