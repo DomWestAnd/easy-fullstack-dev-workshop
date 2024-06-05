@@ -23,6 +23,7 @@ model Recipe {
     createdBy   User   @relation(fields: [createdById], references: [id])
     createdById String
 
+    @@unique([name, createdById])
     @@index([name])
 }
 

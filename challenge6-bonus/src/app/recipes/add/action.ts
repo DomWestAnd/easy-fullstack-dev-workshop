@@ -19,10 +19,19 @@ export default async function addRecipeAction(
 
   if (validation.success) {
     const session = await getServerAuthSession();
-    const userId = session?.user.id;
-    await db.recipe.create({
-      data: {
-        createdById: userId!,
+    const userId = session!.user.id;
+
+    await db.recipe.upsert({
+      where: {
+        name_createdById: { name: validation.data.name, createdById: userId },
+      },
+      update: {
+        description: validation.data.description,
+        ingredients: validation.data.ingredients,
+        instructions: validation.data.instructions,
+      },
+      create: {
+        createdById: userId,
         name: validation.data.name,
         description: validation.data.description,
         ingredients: validation.data.ingredients,
