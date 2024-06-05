@@ -25,17 +25,10 @@ export default async function addRecipeAction(
       where: {
         name_createdById: { name: validation.data.name, createdById: userId },
       },
-      update: {
-        description: validation.data.description,
-        ingredients: validation.data.ingredients,
-        instructions: validation.data.instructions,
-      },
+      update: validation.data,
       create: {
         createdById: userId,
-        name: validation.data.name,
-        description: validation.data.description,
-        ingredients: validation.data.ingredients,
-        instructions: validation.data.instructions,
+        ...validation.data,
       },
     });
 
