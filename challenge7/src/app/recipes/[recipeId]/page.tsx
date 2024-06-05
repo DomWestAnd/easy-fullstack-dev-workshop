@@ -1,4 +1,5 @@
 import delay from "~/delay";
+import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 
 type RecipePageProps = {
@@ -8,8 +9,9 @@ type RecipePageProps = {
 };
 
 export default async function RecipePage({ params }: RecipePageProps) {
+  const session = await getServerAuthSession();
   const recipe = await db.recipe.findUniqueOrThrow({
-    where: { id: Number(params.recipeId) },
+    where: { id: Number(params.recipeId), createdById: session!.user.id },
   });
 
   // Simulate a delay in fetching data from the database

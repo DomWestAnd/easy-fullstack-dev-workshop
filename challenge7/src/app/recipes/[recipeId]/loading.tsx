@@ -2,7 +2,7 @@ export default function RecipeLoadingPage() {
   return (
     <div role="status" className="flex w-full animate-pulse flex-col gap-4">
       <div className="space-y-1">
-        <h1 className="mb-4 h-12 w-96 rounded-full bg-gray-200 sm:h-20 dark:bg-gray-700" />
+        <h1 className="mb-4 h-12 w-96 rounded-full bg-white/20" />
         <div className="flex w-full items-center">
           <div className="h-2.5 w-32 rounded-full bg-white/30" />
           <div className="ms-2 h-2.5 w-24 rounded-full bg-white/40" />
