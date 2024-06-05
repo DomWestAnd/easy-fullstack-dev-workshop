@@ -6,7 +6,7 @@ import ErrorMessages from "~/components/ErrorMessages";
 import SubmitButton from "~/components/SubmitButton";
 
 export default function AddRecipeForm() {
-  const [state, formAction] = useFormState(addRecipeAction, { errors: [] });
+  const [state, formAction] = useFormState(addRecipeAction, {});
 
   return (
     <form action={formAction} className="flex w-full flex-col gap-2 py-2">
@@ -18,7 +18,7 @@ export default function AddRecipeForm() {
           name="name"
           className="rounded-3xl p-2 text-black"
         />
-        <ErrorMessages fieldName="name" errors={state.errors} />
+        <ErrorMessages errors={state.name} />
       </div>
 
       <div className="flex flex-col p-1">
@@ -28,7 +28,7 @@ export default function AddRecipeForm() {
           name="description"
           className="h-32 rounded-3xl p-1 text-black"
         />
-        <ErrorMessages fieldName="description" errors={state.errors} />
+        <ErrorMessages errors={state.description} />
       </div>
 
       <div className="flex flex-col p-1">
@@ -38,7 +38,7 @@ export default function AddRecipeForm() {
           name="ingredients"
           className="h-96 rounded-3xl p-1 text-black"
         />
-        <ErrorMessages fieldName="ingredients" errors={state.errors} />
+        <ErrorMessages errors={state.ingredients} />
       </div>
 
       <div className="flex flex-col p-1">
@@ -48,7 +48,7 @@ export default function AddRecipeForm() {
           name="instructions"
           className="h-96 rounded-3xl p-1 text-black"
         />
-        <ErrorMessages fieldName="instructions" errors={state.errors} />
+        <ErrorMessages errors={state.instructions} />
       </div>
 
       <hr className="my-10 border-t-0" />
