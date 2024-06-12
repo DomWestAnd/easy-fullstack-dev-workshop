@@ -5,7 +5,7 @@ export default async function genericActionHandler<Data, Response>(
   formData: FormData,
   action: (data: Data) => Promise<Response>,
 ) {
-  const data = {} as Record<string, string | Object>;
+  const data = {} as Record<string, string | object>;
   formData.forEach((value, key) => (data[key] = value.valueOf()));
   const validation = schema.safeParse(data);
 
